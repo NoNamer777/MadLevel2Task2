@@ -25,5 +25,22 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
 
         setContentView(binding.root)
+        initView()
     }
-}
+
+    private fun initView() {
+        binding.rvStatements.layoutManager = LinearLayoutManager(
+            this@MainActivity,
+            RecyclerView.VERTICAL,
+            false
+        )
+        binding.rvStatements.adapter = statementAdapter
+        binding.rvStatements.addItemDecoration(
+            DividerItemDecoration(this@MainActivity, DividerItemDecoration.VERTICAL)
+        )
+
+        // Loads in the statements data.
+        for (i in Statement.STATEMENTS.indices) {
+            statements.add(Statement(Statement.STATEMENTS[i], Statement.STATEMENT_CONDITION[i]))
+        }
+        statementAdapter.notifyDataSetChanged()
