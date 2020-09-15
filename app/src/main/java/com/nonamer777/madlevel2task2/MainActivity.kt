@@ -67,11 +67,11 @@ class MainActivity : AppCompatActivity() {
                 val position = viewHolder.adapterPosition
                 val condition = statements[position].isTruth
 
-                /* Remove an item when the its condition is `false` and the direction of the swipe is left. (4)
-                 * Remove an item when the its condition is `true` and the direction of the swipe is right. (8) */
+                /* Remove an item when the its condition is `false` and the swipe direction is left.
+                 * Remove an item when the its condition is `true` and the swipe direction is right. */
                 when (direction) {
-                    4 -> removeStatement(!condition, position)
-                    8 -> removeStatement(condition, position)
+                    ItemTouchHelper.LEFT -> removeStatement(!condition, position)
+                    ItemTouchHelper.RIGHT -> removeStatement(condition, position)
                 }
             }
         }
@@ -81,7 +81,7 @@ class MainActivity : AppCompatActivity() {
     /**
      * Removes a statement from the list if the user had swiped the statement to the right direction.
      * Otherwise show a Snackbar.
-     * */
+     */
     private fun removeStatement(answerIsCorrect: Boolean, index: Int) {
         if (answerIsCorrect) {
             statements.removeAt(index)

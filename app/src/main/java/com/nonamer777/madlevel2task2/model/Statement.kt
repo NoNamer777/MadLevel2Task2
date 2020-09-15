@@ -8,7 +8,7 @@ class Statement(val statement: String, val isTruth: Boolean) {
             "Mobile Application Development grants 12 ECTS",
             "A Unit in Kotlin corresponds to a void in Java",
             "In Kotlin 'when' replaces the 'switch' operator in Java",
-            "In the Player's Handbook for D&D 5e are 9 Races for character creation",
+            "In the Player's Handbook for D&D 5e are 10 Races for character creation",
             "You need to make 2 death saving throws in D&D 5e when your character dies",
             "A round in D&D 5e has a duration of roughly 6 seconds",
             "In D&D 5e you can cast any spell as a bonus action",
